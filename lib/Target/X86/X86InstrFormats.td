@@ -984,3 +984,13 @@ class MMXID<bits<8> o, Format F, dag outs, dag ins, string asm,
 class MMXIS<bits<8> o, Format F, dag outs, dag ins, string asm,
             list<dag> pattern, InstrItinClass itin = NoItinerary>
       : Ii8<o, F, outs, ins, asm, pattern, itin>, XS, Requires<[HasMMX]>;
+
+/* new intrinsic definition test */
+
+class MyInst<dag outs, dag ins, string asm,
+        list<dag> pattern, InstrItinClass itin = NoItinerary,
+        Domain d = GenericDomain>
+  : X86Inst<0, Pseudo, NoImm, outs, ins, asm, itin, d> {
+  let Pattern = pattern;
+  let CodeSize = 3;
+}

@@ -983,3 +983,13 @@ include "llvm/IR/IntrinsicsAMDGPU.td"
 include "llvm/IR/IntrinsicsBPF.td"
 include "llvm/IR/IntrinsicsSystemZ.td"
 include "llvm/IR/IntrinsicsWebAssembly.td"
+
+/* new intrinsic definition test */
+
+let TargetPrefix = "x86" in {
+def int_x86_test_mult : GCCBuiltin<"__builtin_ia32_mult">,
+          Intrinsic<[llvm_i32_ty],  // return type
+                          [llvm_i32_ty,llvm_i32_ty],  // two 32 bit integer as parameter
+                          [],             // properties nothing 
+                          "llvm.x86.test..mult">; // name or description
+}

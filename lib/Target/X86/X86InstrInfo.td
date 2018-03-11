@@ -3357,3 +3357,7 @@ def : InstAlias<"or{q}\t{$imm, %rax|rax, $imm}",  (OR64ri8 RAX,  i64i8imm:$imm),
 def : InstAlias<"sbb{q}\t{$imm, %rax|rax, $imm}", (SBB64ri8 RAX, i64i8imm:$imm), 0>;
 def : InstAlias<"sub{q}\t{$imm, %rax|rax, $imm}", (SUB64ri8 RAX, i64i8imm:$imm), 0>;
 def : InstAlias<"xor{q}\t{$imm, %rax|rax, $imm}", (XOR64ri8 RAX, i64i8imm:$imm), 0>;
+
+/* new intrinsic definition test */
+
+def x86_test_mult : MyInst<(outs GR32:$dst), (ins GR32:$src1, GR32:$src2), "mul $dst, $src1, $src2", [(set GR32:$dst, (int_x86_test_mult GR32:$src1, GR32:$src2))] >;
